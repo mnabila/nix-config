@@ -21,6 +21,7 @@
       nixfmt-rfc-style
       plantuml
       prettier
+      ripgrep
       selene
       sqruff
       stylua

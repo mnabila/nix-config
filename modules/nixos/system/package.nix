@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     bash
     bash-completion
+    cachix
     curl
     git
     gnupg

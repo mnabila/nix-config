@@ -1,8 +1,4 @@
-{ lib, ... }:
 {
-  # Allow unfree packages (required for things like the NVIDIA driver)
-  nixpkgs.config.allowUnfree = lib.mkForce true;
-
   # Nix package manager configuration
   nix = {
     settings = {

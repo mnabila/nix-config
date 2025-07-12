@@ -1,4 +1,8 @@
-{ home-manager, pkgs, ... }:
+{
+  pkgs,
+  home-manager,
+  ...
+}:
 
 let
   username = "saya";
@@ -21,6 +25,7 @@ in
     # Hardware modules
     ../../modules/nixos/hardware/intel.nix
     ../../modules/nixos/hardware/nvidia.nix
+    ../../modules/nixos/hardware/bluetooth.nix
 
     # Service modules
     ../../modules/nixos/services/connman.nix
@@ -39,6 +44,9 @@ in
     # Home manager
     home-manager.nixosModules.home-manager
   ];
+
+  # Allow unfree packages (required for things like the NVIDIA driver)
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = hostname;
 

@@ -76,7 +76,6 @@
   };
 
   home.packages = with pkgs; [
-    go
     grim
     lazydocker
     libnotify
@@ -88,6 +87,8 @@
     papirus-icon-theme
     libnotify
     pass
+    unrar
+    zip
     playerctl
     pop-icon-theme
     python3Full

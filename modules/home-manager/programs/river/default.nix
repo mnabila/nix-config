@@ -47,6 +47,7 @@
           "Pinentry-gtk" = "float";
           "xdg-desktop-portal-gtk" = "float";
           "nm-connection-editor" = "float";
+          "connman-gtk" = "float";
           "wpsoffice" = "csd";
         };
       };
