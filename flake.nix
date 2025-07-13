@@ -1,22 +1,29 @@
 {
-  description = "A very basic flake";
+  description = "mnabila's nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    };
+    neovim-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
   };
+
   outputs =
     {
       self,
       nixpkgs,
       home-manager,
       chaotic,
-      neovim-nightly-overlay,
+      neovim-overlay,
     }:
     {
       nixosConfigurations = {
@@ -24,6 +31,9 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit home-manager;
+            username = "saya";
+            hostname = "plutonia";
+            stateVersion = "25.05";
           };
           modules = [
             ./cachix.nix
@@ -31,7 +41,7 @@
             chaotic.nixosModules.default
             {
               nixpkgs.overlays = [
-                neovim-nightly-overlay.overlays.default
+                neovim-overlay.overlays.default
               ];
             }
           ];

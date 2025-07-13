@@ -1,14 +1,12 @@
 {
+  lib,
   pkgs,
   home-manager,
+  username,
+  hostname,
+  stateVersion,
   ...
 }:
-
-let
-  username = "saya";
-  hostname = "plutonia";
-  stateVersion = "25.05";
-in
 {
   imports = [
     # Hardware configuration
@@ -39,14 +37,14 @@ in
     # Program modules
     ../../modules/nixos/programs/dconf.nix
     ../../modules/nixos/programs/gamemode.nix
-    ../../modules/nixos/programs/gamescope.nix
+    ../../modules/nixos/programs/steam.nix
 
     # Home manager
     home-manager.nixosModules.home-manager
   ];
 
-  # Allow unfree packages (required for things like the NVIDIA driver)
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages (required by nvidia driver)
+  nixpkgs.config.allowUnfree = lib.mkForce true;
 
   networking.hostName = hostname;
 
@@ -60,10 +58,7 @@ in
     shell = pkgs.bash;
     home = "/home/${username}";
     extraGroups = [
-      "docker"
       "input"
-      "libvirtd"
-      "networkmanager"
       "video"
       "wheel"
     ];
@@ -73,9 +68,8 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    users.${username} = import ../../modules/home-manager/user {
-      inherit pkgs username stateVersion;
-    };
+    extraSpecialArgs = { inherit pkgs username stateVersion; };
+    users.${username} = import ../../modules/home-manager/user;
   };
 
   system.stateVersion = stateVersion;

@@ -47,8 +47,8 @@
           "Pinentry-gtk" = "float";
           "xdg-desktop-portal-gtk" = "float";
           "nm-connection-editor" = "float";
-          "connman-gtk" = "float";
           "wpsoffice" = "csd";
+          "connman-gtk" = "float";
         };
       };
 
@@ -103,7 +103,6 @@
           "Super+Control 5" = "toggle-focused-tags 16";
 
           # General keybindings
-          "Super Return" = "spawn alacritty";
           "Super W" = "close";
           "Super+Alt Q" = "exit";
           "Super M" = "zoom";
@@ -121,10 +120,12 @@
           "Super+Shift Comma" = "send-to-output previous";
           "Super+Shift F" = "toggle-float";
           "Super F" = "toggle-fullscreen";
+
+          # Application
+          "Super Return" = "spawn alacritty";
           "Super D" = "spawn 'rofi -show drun'";
           "Super+Shift D" = "spawn 'rofi -show run'";
-          "Super BackSpace" =
-            "spawn 'notify-send \"Pass Man\" \"Clear Cache Time Out : $(gpg-connect-agent reloadagent /bye)\"'";
+          "Super BackSpace" = "spawn gpg-connect-agent reloadagent /bye";
           "Super+Shift BackSpace" = "spawn 'tessen -d rofi'";
           "Super C" = "spawn 'cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy'";
           "Super+Shift C" = "spawn 'cliphist wipe'";
@@ -134,7 +135,8 @@
           "Super P" = "spawn dmenu_power";
           "Super S" = "spawn dmenu_mager";
           "Super Tab" = "spawn 'rofi -show window'";
-          "Super+Shift Return" = "spawn 'swaylock'";
+          "Super+Shift Return" = "spawn swaylock";
+          "Super n" = "spawn connman-gtk";
 
           # Wideriver
           "Super Space" = "send-layout-cmd wideriver '--layout-toggle'";

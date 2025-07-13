@@ -6,16 +6,8 @@
     enableVteIntegration = true;
     historyFile = "${config.xdg.configHome}/.bash_history";
     bashrcExtra = ''
-      gpuinfo() {
-        glxinfo | grep "OpenGL renderer"
-      }
-
-      http() {
+      file-server() {
         caddy file-server --listen :8000 --browse
-      }
-
-      ipinfo() {
-        curl ipinfo.io
       }
 
       sshfm() {
