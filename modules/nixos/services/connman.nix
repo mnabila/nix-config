@@ -9,13 +9,6 @@
     ];
   };
 
-  networking.wireless = {
-    enable = true;
-    dbusControlled = true;
-    userControlled.enable = true;
-    allowAuxiliaryImperativeNetworks = true;
-  };
-
   environment.systemPackages = with pkgs; [
     connman-gtk
   ];

@@ -34,6 +34,7 @@
     ../services/dunst
     ../services/flameshot
     ../services/gpg-agent
+    ../services/kanshi
     ../services/mpd
     ../services/polkit
     ../services/swww
@@ -95,5 +96,6 @@
     tessen
     wl-clipboard
     file
+    wlr-randr
   ];
 }
