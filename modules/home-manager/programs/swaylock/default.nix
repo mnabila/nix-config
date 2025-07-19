@@ -1,9 +1,5 @@
 { config, ... }:
 {
-  # programs.swaylock.enable = true;
-  # home.file.".config/swaylock".source = ./config;
-  # home.file.".config/swaylock".recursive = true;
-
   programs.swaylock = {
     enable = true;
     settings = {

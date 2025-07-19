@@ -133,7 +133,6 @@
           "Super+Shift Print" = "spawn 'flameshot full --raw | wl-copy'";
           "Super Print" = "spawn 'flameshot gui'";
           "Super P" = "spawn dmenu_power";
-          "Super S" = "spawn dmenu_mager";
           "Super Tab" = "spawn 'rofi -show window'";
           "Super+Shift Return" = "spawn swaylock";
           "Super n" = "spawn connman-gtk";

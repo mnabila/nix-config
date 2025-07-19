@@ -70,14 +70,12 @@
 
     sessionPath = [
       "/home/${username}/.local/bin"
-      "/home/${username}/dotfiles/scripts"
       "/home/${username}/go/bin"
       "/home/${username}/.local/share/node/bin"
     ];
   };
 
   home.packages = with pkgs; [
-    grim
     lazydocker
     libnotify
     nodePackages.nodejs
@@ -88,14 +86,11 @@
     papirus-icon-theme
     libnotify
     pass
-    unrar
-    zip
     playerctl
     pop-icon-theme
     python3Full
     tessen
     wl-clipboard
     file
-    wlr-randr
   ];
 }

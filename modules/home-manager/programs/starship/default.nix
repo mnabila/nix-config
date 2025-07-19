@@ -27,7 +27,6 @@
         "$shell"
         "$character"
       ];
-
     };
   };
 }

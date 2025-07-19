@@ -1,4 +1,10 @@
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    wlr-randr
+    wl-mirror
+  ];
+
   services.kanshi = {
     enable = true;
 

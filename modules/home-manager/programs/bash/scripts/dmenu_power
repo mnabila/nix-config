@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DMENU="rofi -dmenu -i -p Power"
+
+OPTIONS='''
+[
+  [ "鈴 Suspend",   "systemctl suspend" ],
+  [ " Hibernate", "systemctl hibernate" ],
+  [ "勒 Reboot",    "systemctl reboot" ],
+  [ "⏻ Poweroff",  "systemctl poweroff" ]
+]
+'''
+
+label=$(echo "$OPTIONS" | jq -r ".[][0]" | $DMENU -theme-str 'window {width: 30%;} listview {lines: 4;}')
+exec $(echo "$OPTIONS" | jq -r ".[] | select(.[0] == \"$label\") | .[1]")

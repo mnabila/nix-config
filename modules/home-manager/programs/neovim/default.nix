@@ -10,8 +10,9 @@
     viAlias = true;
     extraPackages = with pkgs; [
       bash-language-server
+      clang-tools
       delve
-      docker-language-server
+      dockerfile-language-server-nodejs
       emmet-language-server
       gomodifytags
       gopls

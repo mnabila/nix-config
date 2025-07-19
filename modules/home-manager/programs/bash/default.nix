@@ -1,4 +1,9 @@
-{ config, ... }:
+{ config, lib, ... }:
+
+let
+  scriptsDir = ./scripts;
+  scriptNames = builtins.attrNames (builtins.readDir scriptsDir);
+in
 {
   programs.bash = {
     enable = true;
@@ -19,4 +24,10 @@
       }
     '';
   };
+
+  home.file = lib.genAttrs scriptNames (name: {
+    target = ".local/bin/${name}";
+    source = "${scriptsDir}/${name}";
+    executable = true;
+  });
 }
