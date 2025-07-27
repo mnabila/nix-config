@@ -3,7 +3,7 @@
   services.connman = {
     enable = true;
     enableVPN = true;
-    wifi.backend = "wpa_supplicant";
+    wifi.backend = "iwd";
     extraFlags = [
       "--nodnsproxy"
     ];

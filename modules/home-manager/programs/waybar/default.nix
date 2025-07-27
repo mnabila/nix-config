@@ -17,8 +17,8 @@
         "modules-left" = [
           "river/tags"
           "clock"
+          "river/window"
         ];
-        "modules-center" = [ "river/window" ];
         "modules-right" = [
           "network"
           "temperature"
@@ -36,7 +36,7 @@
         };
 
         "clock" = {
-          "format" = "{:%A; %d %B %Y  %H:%M %Z}";
+          "format" = "{:%A %Y-%m-%d %H:%M %Z}";
         };
 
         "cpu" = {
@@ -54,7 +54,7 @@
             "critical" = 20;
           };
           "format" = "{capacity}% {icon}";
-          "format-charging" = "{capacity}% ";
+          "format-charging" = "{capacity}% ";
           "format-plugged" = "{capacity}% ";
           "format-alt" = "{time} {icon}";
           "format-icons" = [
@@ -104,11 +104,12 @@
           "interface" = "wlp0s20f3";
           "format" = "{ifname}";
           "format-wifi" = "{essid} ({signalStrength}%) ";
-          "format-ethernet" = "{ipaddr}/{cidr} 󰊗";
-          "tooltip-format" = "{ifname} via {gwaddr} 󰊗";
+          "format-ethernet" = "{ipaddr}/{cidr} ";
+          "format-disconnected" = "Disconnected 󰀝";
+          "tooltip-format" = "{ifname} via {gwaddr} 󰩠";
           "tooltip-format-wifi" = "{essid} ({signalStrength}%) ";
           "tooltip-format-ethernet" = "{ifname} ";
-          "tooltip-format-disconnected" = "Disconnected";
+          "tooltip-format-disconnected" = "Disconnected ";
           "max-length" = 30;
         };
       };

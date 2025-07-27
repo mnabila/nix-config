@@ -26,12 +26,11 @@
     ../../modules/nixos/hardware/bluetooth.nix
 
     # Service modules
-    ../../modules/nixos/services/connman.nix
+    ../../modules/nixos/services/network-manager.nix
     ../../modules/nixos/services/dnscrypt-proxy.nix
     ../../modules/nixos/services/docker.nix
     ../../modules/nixos/services/greetd.nix
     ../../modules/nixos/services/pipewire.nix
-    ../../modules/nixos/services/security.nix
     ../../modules/nixos/services/xdg.nix
 
     # Program modules

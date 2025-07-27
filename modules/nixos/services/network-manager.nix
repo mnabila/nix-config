@@ -5,11 +5,7 @@
   ...
 }:
 {
-  networking.networkmanager = {
-    enable = true;
-    wifi.powersave = true;
-    dns = "default";
-  };
+  networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
     networkmanagerapplet

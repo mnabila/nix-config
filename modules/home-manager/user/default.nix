@@ -79,6 +79,7 @@
     lazydocker
     libnotify
     nodePackages.nodejs
+    mpv
     brightnessctl
     nwg-look
     openssl
