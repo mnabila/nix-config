@@ -16,10 +16,7 @@
       ];
     };
     extraConfig = ''
-      systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
       riverctl rule-add ssd
-
       riverctl spawn "wideriver --layout left \
         --ratio-master 0.5 \
         --stack even \
@@ -32,7 +29,7 @@
         --border-width-monocle 2 \
         --border-color-focused-monocle 0xebdbb2"
 
-      swww restore
+      systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     '';
     settings = {
       # Keyboard repeat rate
@@ -138,7 +135,7 @@
           "Super P" = "spawn dmenu_power";
           "Super Tab" = "spawn 'rofi -show window'";
           "Super+Shift Return" = "spawn swaylock";
-          "Super n" = "spawn connman-gtk";
+          "Super n" = "spawn nm-connection-editor";
 
           # Wideriver
           "Super Space" = "send-layout-cmd wideriver '--layout-toggle'";
@@ -158,6 +155,20 @@
       };
       Service = {
         ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
+        Restart = "on-failure";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
+    };
+
+    swww-restore = {
+      Unit = {
+        Description = "Sww Restore";
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.swww}/bin/swww restore";
         Restart = "on-failure";
       };
       Install = {

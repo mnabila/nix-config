@@ -17,7 +17,6 @@
     ../../modules/nixos/system/boot.nix
     ../../modules/nixos/system/locale.nix
     ../../modules/nixos/system/package.nix
-    ../../modules/nixos/system/power.nix
     ../../modules/nixos/system/security.nix
 
     # Hardware modules
@@ -32,6 +31,8 @@
     ../../modules/nixos/services/greetd.nix
     ../../modules/nixos/services/pipewire.nix
     ../../modules/nixos/services/xdg.nix
+    ../../modules/nixos/services/auto-cpufreq.nix
+    ../../modules/nixos/services/blueman.nix
 
     # Program modules
     ../../modules/nixos/programs/dconf.nix

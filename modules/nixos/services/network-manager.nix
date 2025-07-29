@@ -5,7 +5,16 @@
   ...
 }:
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dns = "default";
+  };
+
+  # Disable the old 'resolvconf' service to avoid conflict with NetworkManager
+  networking.resolvconf.enable = false;
+
+  # Symlink /etc/resolv.conf to NetworkManager's dynamically generated file
+  environment.etc."resolv.conf".source = "/run/NetworkManager/resolv.conf";
 
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
