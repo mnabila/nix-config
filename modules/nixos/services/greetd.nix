@@ -6,7 +6,7 @@
     settings = {
       terminal.vt = 1;
       default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd ${pkgs.river}/bin/river";
+        command = "${pkgs.greetd}/bin/agreety --cmd ${pkgs.river}/bin/river";
       };
     };
   };

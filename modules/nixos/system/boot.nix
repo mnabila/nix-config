@@ -19,6 +19,7 @@
       "acpi_backlight=video"
       "rd.udev.log_level=3"
       "v4l2loopback"
+      "preempt=full"
     ];
 
     kernel.sysctl = {

@@ -25,14 +25,16 @@
     ../../modules/nixos/hardware/bluetooth.nix
 
     # Service modules
-    ../../modules/nixos/services/network-manager.nix
-    ../../modules/nixos/services/dnscrypt-proxy.nix
-    ../../modules/nixos/services/docker.nix
-    ../../modules/nixos/services/greetd.nix
-    ../../modules/nixos/services/pipewire.nix
-    ../../modules/nixos/services/xdg.nix
     ../../modules/nixos/services/auto-cpufreq.nix
     ../../modules/nixos/services/blueman.nix
+    ../../modules/nixos/services/docker.nix
+    ../../modules/nixos/services/greetd.nix
+    ../../modules/nixos/services/iwd.nix
+    ../../modules/nixos/services/kvm.nix
+    ../../modules/nixos/services/pipewire.nix
+    ../../modules/nixos/services/systemd-networkd.nix
+    ../../modules/nixos/services/dnscrypt-proxy.nix
+    ../../modules/nixos/services/xdg.nix
 
     # Program modules
     ../../modules/nixos/programs/dconf.nix

@@ -22,6 +22,7 @@
       nixfmt-rfc-style
       plantuml
       prettier
+      pyright
       ripgrep
       selene
       sqruff
@@ -29,6 +30,7 @@
       typescript-language-server
       vim-language-server
       yaml-language-server
+      vscode-langservers-extracted
     ];
   };
 }

@@ -1,23 +1,30 @@
 {
   services.dnscrypt-proxy2 = {
     enable = true;
+
     settings = {
-      # Use local loopback address only
+      ## Global
       listen_addresses = [ "127.0.0.1:53" ];
+      max_clients = 250;
+      server_names = [ "personal" ];
 
-      # List of servers to use
-      server_names = [ "cloudflare" ];
+      ## Server selection
+      ipv4_servers = true;
+      ipv6_servers = false;
+      dnscrypt_servers = true;
+      doh_servers = true;
+      odoh_servers = false;
 
-      # Enforce DNSSEC
-      require_dnssec = true;
-
-      # Server must not log user queries (declarative)
+      require_dnssec = false;
       require_nolog = true;
-
-      # Server must not enforce its own blocklist (for parental control, ads blocking...)
       require_nofilter = true;
 
-      ## Enable a DNS cache to reduce latency and outgoing traffic
+      ## Connection
+      force_tcp = false;
+      timeout = 5000;
+      keepalive = 30;
+
+      ## Cache
       cache = true;
       cache_size = 4096;
       cache_min_ttl = 2400;
@@ -25,17 +32,37 @@
       cache_neg_min_ttl = 60;
       cache_neg_max_ttl = 600;
 
-      # Keep connections alive
-      keepalive = 30;
+      ## Captive portal
+      captive_portals = { };
 
-      # Log minimal information (for debugging only)
-      log_level = 2;
-
-      # Optional fallback resolver (in case of bootstrap failure)
-      fallback_resolvers = [
+      ## Bootstrap resolvers
+      bootstrap_resolvers = [
+        "8.8.8.8:53"
         "1.1.1.1:53"
-        "9.9.9.9:53"
       ];
+
+      ## Fallback resolvers
+      fallback_resolvers = [
+        "8.8.8.8:53"
+        "1.1.1.1:53"
+      ];
+
+      ignore_system_dns = true;
+
+      ## Filters
+      block_ipv6 = false;
+      block_unqualified = true;
+      block_undelegated = true;
+
+      ## additional servers
+      static = {
+        personal = {
+          stamp = "sdns://AgcAAAAAAAAADDk0LjE0MC4xNC40OQARZC5hZGd1YXJkLWRucy5jb20TL2Rucy1xdWVyeS84YmZkOTM5ZQ";
+        };
+      };
     };
   };
+
+  networking.nameservers = [ "127.0.0.1" ];
+  services.resolved.enable = false;
 }
