@@ -35,11 +35,11 @@
     ../../modules/nixos/services/systemd-networkd.nix
     ../../modules/nixos/services/dnscrypt-proxy.nix
     ../../modules/nixos/services/xdg.nix
+    ../../modules/nixos/services/waydroid.nix
 
     # Program modules
     ../../modules/nixos/programs/dconf.nix
     ../../modules/nixos/programs/gamemode.nix
-    ../../modules/nixos/programs/steam.nix
 
     # Home manager
     home-manager.nixosModules.home-manager

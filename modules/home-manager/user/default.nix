@@ -38,6 +38,13 @@
     ../services/mpd
     ../services/polkit
     ../services/swww
+
+    ../toolchains/frontend.nix
+    ../toolchains/golang.nix
+    ../toolchains/lua.nix
+    ../toolchains/nix.nix
+    ../toolchains/python.nix
+    ../toolchains/rust.nix
   ];
 
   home = {
@@ -70,15 +77,12 @@
 
     sessionPath = [
       "/home/${username}/.local/bin"
-      "/home/${username}/go/bin"
-      "/home/${username}/.local/share/node/bin"
     ];
   };
 
   home.packages = with pkgs; [
     lazydocker
     libnotify
-    nodePackages.nodejs
     mpv
     brightnessctl
     nwg-look
@@ -89,7 +93,6 @@
     pass
     playerctl
     pop-icon-theme
-    python3Full
     tessen
     wl-clipboard
     file

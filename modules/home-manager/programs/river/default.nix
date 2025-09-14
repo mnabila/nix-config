@@ -49,6 +49,7 @@
           "nm-connection-editor" = "float";
           "wpsoffice" = "csd";
           "connman-gtk" = "float";
+          ".scrcpy-wrapped" = "float";
         };
       };
 

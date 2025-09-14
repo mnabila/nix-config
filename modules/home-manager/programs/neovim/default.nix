@@ -11,12 +11,7 @@
     extraPackages = with pkgs; [
       bash-language-server
       clang-tools
-      delve
       dockerfile-language-server-nodejs
-      emmet-language-server
-      gomodifytags
-      gopls
-      gotools
       lua-language-server
       nil
       nixfmt-rfc-style
@@ -27,10 +22,8 @@
       selene
       sqruff
       stylua
-      typescript-language-server
       vim-language-server
       yaml-language-server
-      vscode-langservers-extracted
     ];
   };
 }

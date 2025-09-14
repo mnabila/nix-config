@@ -32,9 +32,6 @@
       cache_neg_min_ttl = 60;
       cache_neg_max_ttl = 600;
 
-      ## Captive portal
-      captive_portals = { };
-
       ## Bootstrap resolvers
       bootstrap_resolvers = [
         "8.8.8.8:53"
